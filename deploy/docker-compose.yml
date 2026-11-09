@@ -1,0 +1,16 @@
+services:
+  db: #this is a service
+    image: pgvector/pgvector:pg16 #which image to pull for this service (environment)
+    container_name: resumepilot_db 
+    environment:
+      POSTGRES_USER: resumepilot
+      POSTGRES_PASSWORD: resumepilot
+      POSTGRES_DB: resumepilot
+    ports:
+      - "5432:5432" #host:docker
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    restart: unless-stopped
+
+volumes:
+  pgdata:

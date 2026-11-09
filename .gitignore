@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and local config (commit .env.example instead)
+.env
+.env.*
+!.env.example
+
+# Uploaded files and generated PDFs
+apps/api/storage/
+*.pdf
+
+# Node / Next.js
+node_modules/
+.next/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+

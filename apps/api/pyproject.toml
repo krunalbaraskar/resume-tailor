@@ -1,0 +1,38 @@
+[project]
+name = "resumepilot-api"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+  "fastapi",
+  "uvicorn[standard]",
+  "pydantic-settings",
+  "email-validator",
+  "sqlalchemy[asyncio]",
+  "psycopg[binary]",
+  "alembic",
+  "pgvector",
+  "pyjwt",
+  "argon2-cffi",
+  "python-multipart",
+  "pypdf",
+  "python-docx",
+  "markdown-it-py",
+  "anthropic",
+]
+
+# Heavy ML dependency (PyTorch). Installed later, in Week 1 step 6, when we need embeddings:
+#   python -m uv add sentence-transformers
+
+[dependency-groups]
+dev = ["pytest", "pytest-asyncio", "httpx", "ruff", "mypy"]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/resumepilot_api"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
